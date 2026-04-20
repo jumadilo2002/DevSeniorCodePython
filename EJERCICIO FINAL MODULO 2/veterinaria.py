@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
 
 
-# =========================
+
 # CLASE ABSTRACTA PERSONA
-# =========================
+
 class Persona(ABC):
     def __init__(self, nombre, documento):
         self.nombre = nombre
@@ -14,9 +14,7 @@ class Persona(ABC):
         pass
 
 
-# =========================
 # HERENCIA DESDE PERSONA
-# =========================
 class Veterinario(Persona):
     def __init__(self, nombre, documento, especialidad):
         super().__init__(nombre, documento)
@@ -62,9 +60,9 @@ class Cliente(Persona):
             print(f"- {mascota.nombre} ({mascota.especie})")
 
 
-# =========================
+
 # CLASE MASCOTA
-# =========================
+
 class Mascota:
     def __init__(self, nombre, especie, edad, peso):
         self.nombre = nombre
@@ -79,9 +77,9 @@ class Mascota:
         )
 
 
-# =========================
+
 # CLASE TRATAMIENTO
-# =========================
+
 class Tratamiento:
     def __init__(self, nombre, costo, duracion_dias):
         self.nombre = nombre
@@ -95,11 +93,11 @@ class Tratamiento:
         )
 
 
-# =========================
+
 # CLASE CONSULTA
 # Asociación con Mascota y Veterinario
 # Composición con Tratamiento
-# =========================
+
 class Consulta:
     COSTO_BASE_CONSULTA = 50000
 
@@ -133,9 +131,9 @@ class Consulta:
         return self.COSTO_BASE_CONSULTA + costo_tratamientos
 
 
-# =========================
+
 # CLASE ABSTRACTA METODOPAGO
-# =========================
+
 class MetodoPago(ABC):
     @abstractmethod
     def procesar_pago(self, monto):
@@ -167,10 +165,9 @@ class PagoTransferencia(MetodoPago):
         )
 
 
-# =========================
+
 # CLASE FACTURA
 # Usa polimorfismo con MetodoPago
-# =========================
 class Factura:
     def __init__(self, consulta):
         self.consulta = consulta
@@ -197,9 +194,9 @@ class Factura:
         print(metodo_pago.procesar_pago(self.total))
 
 
-# =========================
+
 # PRUEBA DEL SISTEMA
-# =========================
+
 if __name__ == "__main__":
     print("=== SISTEMA DE HOSPITAL VETERINARIO ===\n")
 
